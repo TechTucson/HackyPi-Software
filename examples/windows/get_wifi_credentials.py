@@ -1,4 +1,3 @@
-
 # Basic Program to run some networking commands
 # Code also display some text on TFT screen
 # This code works for Windows based PC/Laptop but can be modified for Other OS
@@ -95,7 +94,7 @@ try:
     time.sleep(1.2)
     
     #commands are OS specific make sure to provide correct commands
-    keyboard_layout.write("for /f "skip=9 tokens=1,2 delims=:" %i in ('netsh wlan show profiles') do @echo %j | findstr -i -v echo | netsh wlan show profiles %j key=clear") 
+    keyboard_layout.write("ipconfig") 
     keyboard.send(Keycode.ENTER)
     time.sleep(1)
     
@@ -125,3 +124,5 @@ try:
 except Exception as ex:
     keyboard.release_all()
     raise ex
+
+
